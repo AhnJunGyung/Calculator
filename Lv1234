@@ -1,0 +1,131 @@
+import UIKit
+
+class Calculator {
+
+    /*
+    //Lv1
+    //더하기
+    func add(_ num1: Int, _ num2: Int) -> Int { return num1 + num2 }
+    func add(_ num1: Double, _ num2: Double) -> Double { return num1 + num2 }
+    
+    //빼기
+    func sub(_ num1: Int, _ num2: Int) -> Int { return num1 - num2 }
+    func sub(_ num1: Double, _ num2: Double) -> Double { return num1 - num2 }
+    
+    //나누기
+    func div(_ num1: Int, _ num2: Int) -> Int { return num1 / num2 }
+    func div(_ num1: Double, _ num2: Double) -> Double { return num1 / num2 }
+    
+    //곱하기
+    func mul(_ num1: Int, _ num2: Int) -> Int { return num1 * num2 }
+    func mul(_ num1: Double, _ num2: Double) -> Double { return num1 * num2 }
+    
+    //Lv2
+    //나머지 연산
+    func mod(_ num1: Int, _ num2: Int) -> Int { return num1 % num2 }
+    func mod(_ num1: Double, _ num2: Double) -> Double {
+        //print(a % b) : 실수의 모듈러(%) 연산은 swift에서 막아놓음. 의미없는 값이 나오거나 정확한 값이 나오지 않을 수 있기 때문
+        return num1.truncatingRemainder(dividingBy: num2)// 실수의 모듈러 연산을 가능하도록 해줌
+    }
+    */
+    //Lv3
+    let addOperation = AddOperation()
+    let subOperation = SubstractOperation()
+    let divOperation = DivideOperation()
+    let mulOperation = MultiplyOperation()
+    
+}
+
+let calculator = Calculator()
+/*
+//Lv1
+//더하기
+print(calculator.add(10, 15))
+print(calculator.add(13, 5.5))
+
+//빼기
+print(calculator.sub(27, 7))
+print(calculator.sub(20, 7.5))
+
+//나누기
+print(calculator.div(27, 7))
+print(calculator.div(26, 5.3))
+
+//곱하기
+print(calculator.mul(8, 3))
+print(calculator.mul(34, 5.3))
+
+//Lv2
+//나머지 연산
+print(calculator.mod(6, 3))
+print(calculator.mod(3.3, 2))
+*/
+
+//Lv3
+/*
+class AddOperation {
+    func add(_ num1: Int, _ num2: Int) -> Int { return num1 + num2 }
+    func add(_ num1: Double, _ num2: Double) -> Double { return num1 + num2 }
+}
+
+class SubstractOperation {
+    func sub(_ num1: Int, _ num2: Int) -> Int { return num1 - num2 }
+    func sub(_ num1: Double, _ num2: Double) -> Double { return num1 - num2 }
+}
+
+class MultiplyOperation {
+    func mul(_ num1: Int, _ num2: Int) -> Int { return num1 * num2 }
+    func mul(_ num1: Double, _ num2: Double) -> Double { return num1 * num2 }
+}
+
+class DivideOperation {
+    func div(_ num1: Int, _ num2: Int) -> Int { return num1 / num2 }
+    func div(_ num1: Double, _ num2: Double) -> Double { return num1 / num2 }
+}
+
+print(calculator.mulOperation.mul(11, 15.5))
+*/
+
+//Lv4
+//프로토콜
+protocol AddAbstractOperation {
+    func add(_ num1: Int, _ num2: Int) -> Int
+    func add(_ num1: Double, _ num2: Double) -> Double
+}
+
+protocol SubAbstractOperation {
+    func sub(_ num1: Int, _ num2: Int) -> Int
+    func sub(_ num1: Double, _ num2: Double) -> Double
+}
+
+protocol MulAbstractOperation {
+    func mul(_ num1: Int, _ num2: Int) -> Int
+    func mul(_ num1: Double, _ num2: Double) -> Double
+}
+
+protocol DivAbstractOperation {
+    func div(_ num1: Int, _ num2: Int) -> Int
+    func div(_ num1: Double, _ num2: Double) -> Double
+}
+
+
+//프로토콜 구체화
+class AddOperation: AddAbstractOperation {
+    func add(_ num1: Int, _ num2: Int) -> Int { return num1 + num2 }
+    func add(_ num1: Double, _ num2: Double) -> Double { return num1 + num2 }
+}
+
+class SubstractOperation: SubAbstractOperation {
+    func sub(_ num1: Int, _ num2: Int) -> Int { return num1 - num2 }
+    func sub(_ num1: Double, _ num2: Double) -> Double { return num1 - num2 }
+}
+
+class MultiplyOperation: MulAbstractOperation {
+    func mul(_ num1: Int, _ num2: Int) -> Int { return num1 * num2 }
+    func mul(_ num1: Double, _ num2: Double) -> Double { return num1 * num2 }
+}
+
+class DivideOperation: DivAbstractOperation {
+    func div(_ num1: Int, _ num2: Int) -> Int { return num1 / num2 }
+    func div(_ num1: Double, _ num2: Double) -> Double { return num1 / num2 }
+}
