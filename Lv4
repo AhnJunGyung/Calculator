@@ -1,0 +1,42 @@
+import UIKit
+
+class Calculator {
+    //Lv3
+    let addOperation = AddOperation()
+    let subOperation = SubstractOperation()
+    let divOperation = DivideOperation()
+    let mulOperation = MultiplyOperation()
+    
+}
+
+let calculator = Calculator()
+
+//Lv4
+//프로토콜
+
+protocol Operation {
+    func calculate(_ num1: Int, _ num2: Int) -> Int
+    func calculate(_ num1: Double, _ num2: Double) -> Double
+}
+
+
+//프로토콜 구체화
+class AddOperation: Operation {
+    func calculate(_ num1: Int, _ num2: Int) -> Int { return num1 + num2 }
+    func calculate(_ num1: Double, _ num2: Double) -> Double { return num1 + num2 }
+}
+
+class SubstractOperation: Operation {
+    func calculate(_ num1: Int, _ num2: Int) -> Int { return num1 - num2 }
+    func calculate(_ num1: Double, _ num2: Double) -> Double { return num1 - num2 }
+}
+
+class MultiplyOperation: Operation {
+    func calculate(_ num1: Int, _ num2: Int) -> Int { return num1 * num2 }
+    func calculate(_ num1: Double, _ num2: Double) -> Double { return num1 * num2 }
+}
+
+class DivideOperation: Operation {
+    func calculate(_ num1: Int, _ num2: Int) -> Int { return num1 / num2 }
+    func calculate(_ num1: Double, _ num2: Double) -> Double { return num1 / num2 }
+}
